@@ -44,21 +44,21 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-    //20-05 rework+++ UPDATE GET
+    //24-05 rework+++ UPDATE GET
     @GetMapping("/users-update/{id}/edit")
     public String edit(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "edit";
     }
 
-    //20-05 rework+++ UPDATE GET-EDIT button
+    //24-05 rework+++ UPDATE GET-EDIT button
     @GetMapping("/users-update/{id}")
     public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userService.updateUser(user);
         return "redirect:/admin/users";
     }
 
-    //20-05 rework+++ UPDATE GET-DELETE button
+    //24-05 rework+++ UPDATE GET-DELETE button
     @GetMapping("/users-delete/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.removeUser(id);
